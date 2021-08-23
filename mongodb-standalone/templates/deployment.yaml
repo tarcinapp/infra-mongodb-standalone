@@ -43,9 +43,11 @@ spec:
             successThreshold: 1
             timeoutSeconds: 5
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            exec:
+              command:
+              - mongo
+              - --eval
+              - db.adminCommand('ping')
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
