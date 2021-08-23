@@ -1,6 +1,10 @@
 # Default values for mongodb-standalone.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+database:
+  name: "tarcinapp"
+  username: "tarcinapp"
+  password: "manage"
 
 image:
   name: docker.io/ranchercharts/bitnami-mongodb:4.0.12-debian-9-r5

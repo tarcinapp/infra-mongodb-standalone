@@ -23,6 +23,29 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
+          env:
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "mongodb-standalone.fullname" . }}
+                key: mongodb-password
+          - name: MONGODB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "mongodb-standalone.fullname" . }}
+                key: mongodb-root-password
+          - name: MONGODB_DATABASE
+            value: {{ .Values.database.name}}
+          - name: MONGODB_USERNAME
+            value: {{ .Values.database.username}}
+          - name: MONGODB_SYSTEM_LOG_VERBOSITY
+            value: "0"
+          - name: MONGODB_DISABLE_SYSTEM_LOG
+            value: "no"
+          - name: MONGODB_ENABLE_IPV6
+            value: "no"
+          - name: MONGODB_ENABLE_DIRECTORY_PER_DB
+            value: "no"
           securityContext:
             runAsNonRoot: true
             runAsUser: 1001
