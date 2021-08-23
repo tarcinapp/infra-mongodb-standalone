@@ -10,7 +10,7 @@ image:
   tag: ""
 
 nameOverride: ""
-fullnameOverride: "MongoDB Standalone"
+fullnameOverride: "mongodb-standalone"
 
 podAnnotations: {}
 
