@@ -15,15 +15,7 @@ fullnameOverride: "MongoDB Standalone"
 podAnnotations: {}
 
 podSecurityContext:
-  fsGroup: 1001
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+  fsGroup: 1001  
 
 service:
   type: ClusterIP
