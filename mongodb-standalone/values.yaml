@@ -5,6 +5,7 @@ database:
   name: "tarcinapp"
   username: "tarcinapp"
   password: "manage"
+  rootPassword: "Manage123!"
 
 image:
   name: docker.io/ranchercharts/bitnami-mongodb:4.0.12-debian-9-r5
