@@ -10,8 +10,11 @@ image:
   name: docker.io/ranchercharts/bitnami-mongodb:4.0.12-debian-9-r5
   repository: nginx
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+
+storage: 8Gi
+storageClassName: ""
+accessModes:
+  - ReadWriteOnce
 
 nameOverride: ""
 fullnameOverride: "mongodb-standalone"
