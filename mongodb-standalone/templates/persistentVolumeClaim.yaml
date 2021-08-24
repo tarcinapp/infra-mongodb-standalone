@@ -10,7 +10,9 @@ spec:
   resources:
     requests:
       storage: 8Gi
+  {{- if .Values.storageClassName }}
   storageClassName: {{ .Values.storageClassName}}
+  {{- end }}
 status:
   accessModes:
   - ReadWriteOnce
