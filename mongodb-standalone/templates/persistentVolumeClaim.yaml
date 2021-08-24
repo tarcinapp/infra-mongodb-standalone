@@ -6,16 +6,16 @@ metadata:
   name: {{ include "mongodb-standalone.fullname" . }}
 spec:
   accessModes:
-  - ReadWriteOnce
+  {{- range .Values.accessModes }}
+  - {{ . }}
+  {{- end }} 
   resources:
     requests:
+      {{- if .Values.storage }}
+      storage: {{ .Values.storage}}
+      {{- else }}
       storage: 8Gi
+      {{- end }}
   {{- if .Values.storageClassName }}
   storageClassName: {{ .Values.storageClassName}}
   {{- end }}
-status:
-  accessModes:
-  - ReadWriteOnce
-  capacity:
-    storage: 8Gi
-  phase: Bound
