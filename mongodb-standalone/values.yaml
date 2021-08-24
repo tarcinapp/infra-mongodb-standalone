@@ -8,7 +8,6 @@ database:
 
 image:
   name: docker.io/ranchercharts/bitnami-mongodb:4.0.12-debian-9-r5
-  repository: nginx
   pullPolicy: IfNotPresent
 
 storage: 8Gi
@@ -25,8 +24,9 @@ podSecurityContext:
   fsGroup: 1001  
 
 service:
-  type: ClusterIP
-  port: 80
+  type: NodePort
+  port: 27017
+  nodePort: 32000
 
 # We usually recommend not to specify default resources and to leave this as a conscious
 # choice for the user. This also increases chances charts run on environments with little
