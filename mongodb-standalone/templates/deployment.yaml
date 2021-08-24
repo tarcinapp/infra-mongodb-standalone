@@ -74,6 +74,9 @@ spec:
               - db.adminCommand('ping')
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          - mountPath: /bitnami/mongodb
+            name: data
       volumes:
       - name: data
         persistentVolumeClaim:
