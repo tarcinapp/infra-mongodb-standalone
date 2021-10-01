@@ -17,7 +17,7 @@ accessModes:
   - ReadWriteOnce
 
 nameOverride: ""
-fullnameOverride: "mongodb-standalone"
+fullnameOverride: "tarcinapp-db"
 
 podAnnotations: {}
 
